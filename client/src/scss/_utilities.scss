@@ -1,0 +1,818 @@
+// Backgrounds
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-secondary {
+    @include set-background($secondary-color);
+  }
+  &-hover {
+    @include set-background($hover-color);
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-gray {
+    @include set-background($gray-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-white {
+    @include set-background(#fff);
+  }
+  &-caution {
+    @include set-background($caution-color);
+  }
+  &-black {
+    @include set-background($black-color);
+  }
+}
+
+// Text Styles
+.x-large {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+// Buttons
+.btn,
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+  display: inline-block;
+  background-color: $light-color;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  outline: none;
+  transition: all 0.2s ease-in;
+  margin: 0;
+
+  &.btn-primary {
+    @include set-background($primary-color);
+    &:hover {
+      background: lighten($primary-color, 5%);
+    }
+  }
+  &.btn-secondary {
+    @include set-background($secondary-color);
+    &:hover {
+      background: lighten($secondary-color, 5%);
+    }
+  }
+  &.btn-dark {
+    @include set-background($dark-color);
+    &:hover {
+      background: lighten($dark-color, 5%);
+    }
+  }
+  &.btn-success {
+    @include set-background($success-color);
+    &:hover {
+      background: lighten($success-color, 5%);
+    }
+  }
+  &.btn-danger {
+    @include set-background($danger-color);
+    &:hover {
+      background: lighten($danger-color, 5%);
+    }
+  }
+  &.btn-caution {
+    @include set-background($caution-color);
+    &:hover {
+      background: lighten($caution-color, 5%);
+    }
+  }
+  &.btn-nobg {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 0.2rem $primary-color;
+    color: $secondary-color;
+    &:hover {
+      background: lighten($primary-color, 5%);
+    }
+  }
+  &:hover {
+    background: lighten($dark-color, 20%);
+    color: white;
+  }
+}
+
+// Container
+.container {
+  max-width: $max-width;
+  margin: 0 10rem 0 10rem;
+  overflow: hidden;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+/**********************************************************************************************************
+LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE LINE 
+**********************************************************************************************************/
+
+.line {
+  height: 1px;
+  background: #ccc;
+  margin: 1.5rem 0;
+  border-radius: 2rem;
+}
+
+.line-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .left {
+    height: 0.2rem;
+    background: linear-gradient(
+      80deg,
+      $secondary-color 20%,
+      $primary-color 80%
+    );
+    margin: 1.5rem 0;
+    border-radius: 2rem;
+    width: 40%;
+  }
+  .right {
+    height: 0.2rem;
+    background: linear-gradient(
+      80deg,
+      $primary-color 20%,
+      $secondary-color 80%
+    );
+    margin: 1.5rem 0;
+    border-radius: 2rem;
+    width: 40%;
+  }
+  i {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
+
+.line-icon-sm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .left {
+    height: 0.2rem;
+    background: linear-gradient(
+      80deg,
+      $secondary-color 20%,
+      $primary-color 80%
+    );
+    margin: 1.5rem 0;
+    border-radius: 2rem;
+    width: 20%;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 0.2rem;
+    background: linear-gradient(
+      80deg,
+      $primary-color 20%,
+      $secondary-color 80%
+    );
+    margin: 1.5rem 0;
+    border-radius: 2rem;
+    width: 20%;
+  }
+  i {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
+
+.line-container {
+  padding: 0.5rem 0 1rem 0;
+}
+
+.line-container-bot {
+  padding: 0 0 0.5rem 0;
+}
+
+.line-container-balanced {
+  padding: 0.5rem 0 0.5rem 0;
+}
+.line-container-center {
+  padding: 1rem 0 1rem 0;
+}
+
+.line-sm {
+  background-color: $primary-color;
+  height: 0.2rem;
+  width: 6rem;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.line-sm-center {
+  background-color: $primary-color;
+  height: 0.2rem;
+  width: 6rem;
+  margin: auto;
+}
+
+.line-md {
+  background-color: $primary-color;
+  height: 0.2rem;
+  width: 12rem;
+}
+
+.line-md-center {
+  background-color: $primary-color;
+  height: 0.2rem;
+  width: 12rem;
+  margin: auto;
+}
+
+.underline {
+  background-color: $primary-color;
+  height: 0.2rem;
+  width: 1px;
+  margin: auto;
+  border-radius: 5rem;
+}
+
+/**********************************************************************************************************
+CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX CHECKBOX
+**********************************************************************************************************/
+// Container
+.check {
+  .check-container {
+    height: 1.8rem;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: start;
+    padding-left: 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  // CheckBox
+  input[type='checkbox'] {
+    position: absolute;
+    opacity: 1;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  // Checkmark
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $secondary-color;
+    border: solid 0.1rem $primary-color;
+    border-radius: 0.5rem;
+  }
+
+  // On mouse-over, add a grey background color
+  .check-container:hover input[type='checkbox'] ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  // When the checkbox is checked, add a blue background
+  .check-container input[type='checkbox']:checked ~ .checkmark {
+    background-color: $primary-color;
+  }
+
+  // Create the checkmark/indicator (hidden when not checked)
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  // Show the checkmark when checked
+  .check-container input[type='checkbox']:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  // Style the checkmark/indicator
+  .check-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+/********************************************************************************************************
+RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO RADIO
+*********************************************************************************************************/
+.radio {
+  .radio-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default radio button */
+  .radio-container input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    border: solid 0.1rem $primary-color;
+    border-radius: 50%;
+  }
+
+  /* On mouse-over, add a grey background color */
+  .radio-container:hover input[type='radio'] ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the radio button is checked, add a blue background */
+  .radio-container input[type='radio']:checked ~ .checkmark {
+    background-color: #2196f3;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .radio-container input[type='radio']:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the indicator (dot/circle) */
+  .radio-container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+}
+
+.form-group {
+  /********************************************************************************************************
+INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT INPUT TEXT 
+*********************************************************************************************************/
+  input[type='text'],
+  [type='password'],
+  [type='email'],
+  [type='number'],
+  [type='email'],
+  [type='search'],
+  [type='tel'],
+  [type='url'] {
+    width: 90%;
+    border: solid 0.1rem $primary-color;
+    border-radius: 0.2rem;
+    margin: auto;
+    padding: 0.5rem;
+  }
+  input[type='text'],
+  [type='password'],
+  [type='email'],
+  [type='number'],
+  [type='email'],
+  [type='search'],
+  [type='tel'],
+  [type='url']::placeholder {
+    font-size: 1rem;
+  }
+  /********************************************************************************************************
+INPUT DATE INPUT DATE INPUT DATE INPUT DATE INPUT DATE INPUT DATE INPUT DATE INPUT DATE INPUT DATE INPUT DATE 
+*********************************************************************************************************/
+  input[type='date'] {
+    width: 12rem;
+    font-size: 1.5rem;
+    background-color: lighten($secondary-color, 40%);
+    border: solid 0.1rem $primary-color;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+    color: $primary-color;
+
+    &::-webkit-datetime-edit-month-field {
+      color: black;
+      &:hover {
+        color: lighten($primary-color, 7%);
+      }
+    }
+    &::-webkit-datetime-edit-day-field {
+      color: black;
+      &:hover {
+        color: lighten($primary-color, 7%);
+      }
+    }
+    &::-webkit-datetime-edit-year-field {
+      color: black;
+      &:hover {
+        color: lighten($primary-color, 7%);
+      }
+    }
+
+    &::-webkit-clear-button {
+      font-size: 2rem;
+      position: relative;
+      right: 0.3rem;
+      margin-right: 0.2rem;
+      cursor: pointer;
+    }
+    &::-webkit-inner-spin-button {
+      height: 2rem;
+    }
+    &::-webkit-calendar-picker-indicator {
+      font-size: 1rem;
+      &:hover {
+        background-color: lighten($dark-color, 40%);
+        color: $dark-color;
+        cursor: pointer;
+      }
+      &:active {
+        color: blue;
+      }
+    }
+  }
+  /********************************************************************************************************
+INPUT FILE INPUT FILE INPUT FILE INPUT FILE INPUT FILE INPUT FILE INPUT FILE INPUT FILE INPUT FILE INPUT FILE 
+*********************************************************************************************************/
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .file-label:hover {
+    cursor: pointer;
+  }
+}
+
+/**********************************************************************************************************
+IMG CONTAINERS
+**********************************************************************************************************/
+
+// img with overlay
+.img-overlay {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  opacity: 0.8;
+}
+
+//Text on img bottom left
+.img-text-bleft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  p {
+    margin: 0 0 0.5rem 1rem;
+  }
+  h1 {
+    margin: 0 0 1rem 1rem;
+    font-size: 2.5rem;
+  }
+}
+
+.img-cont-xs {
+  width: 7rem;
+  text-align: center;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+    border-radius: 100%;
+  }
+}
+
+.img-cont-xs-sq {
+  width: 10rem;
+  text-align: center;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.img-cont-sm {
+  width: 14rem;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.img-cont-mid {
+  width: 19rem;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.img-cont-mid-long {
+  width: 30rem;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+}
+
+// two imgs over eachother
+.two-img-cont-mid {
+  width: 30rem;
+  position: relative;
+  top: 0;
+  left: 0;
+  img {
+    max-width: 50%;
+    display: block;
+  }
+  .bg-img {
+    position: absolute;
+    top: 0;
+  }
+  .back {
+    position: relative;
+    top: 0;
+    left: 10rem;
+  }
+  .front {
+    position: absolute;
+    top: 10rem;
+    left: 0;
+  }
+  .back-rev {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .front-rev {
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+  }
+  .back:hover {
+    position: absolute;
+    top: 10rem;
+    left: 0;
+  }
+  .back:hover ~ .front {
+    position: relative;
+    top: 0;
+    left: 10rem;
+  }
+  .back-rev:hover {
+    position: absolute;
+    top: 10rem;
+    left: 10rem;
+  }
+  .back-rev:hover ~ .front-rev {
+    position: relative;
+    top: 0;
+    left: 0rem;
+  }
+  @media (max-width: 700px) {
+    width: 11rem;
+    img {
+      max-width: 90%;
+    }
+    i {
+      color: $primary-color;
+    }
+    .icon {
+      position: absolute;
+      z-index: 2;
+      top: 1rem;
+      right: 1rem;
+    }
+    .icon-rev {
+      position: absolute;
+      z-index: 2;
+      top: 1rem;
+      left: 1rem;
+    }
+    .bg-img {
+      position: absolute; //to do
+      top: 0;
+    }
+    .back {
+      top: 0;
+      left: 1rem;
+    }
+    .front {
+      top: 1rem;
+      left: 0;
+    }
+    .back-rev {
+      top: 0;
+      left: 0;
+    }
+    .front-rev {
+      top: 1rem;
+      left: 1rem;
+    }
+  }
+}
+
+.img-cont-mid {
+  width: 30rem;
+  position: relative;
+  margin: auto;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+  }
+  i {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    color: $primary-color;
+  }
+}
+
+.img-cont-big {
+  width: 55rem;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.img-cont-big-tall {
+  width: 20rem;
+  position: relative;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: auto;
+  }
+}
+
+.img-cont-big-bg {
+  width: 30rem;
+  margin: 3rem 0 3rem 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  img {
+    max-width: 20rem;
+    display: block;
+  }
+  .back {
+    position: relative;
+    top: 3rem;
+    left: 4rem;
+  }
+  .back-high {
+    position: relative;
+    top: -2rem;
+    left: 4rem;
+  }
+  .back-top-left {
+    position: absolute;
+    top: -5rem;
+    left: -6rem;
+  }
+  .back-bot-left {
+    position: absolute;
+    bottom: -6rem;
+    left: -6rem;
+  }
+  .back-top-right {
+    position: absolute;
+    top: -5rem;
+    right: -6rem;
+  }
+  .back-bot-right {
+    position: absolute;
+    bottom: -6rem;
+    right: -6rem;
+  }
+  .front {
+    position: absolute;
+    top: 0rem;
+    left: 0;
+  }
+  .back-rev {
+    position: relative;
+    top: 3rem;
+    left: 5.6rem;
+  }
+  .back-rev-high {
+    position: relative;
+    top: -2rem;
+    left: 5.6rem;
+  }
+  .front-rev {
+    position: absolute;
+    top: 0rem;
+    right: 0;
+  }
+}
+
+/*********************************************************************************************************
+VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO VIDEO
+**********************************************************************************************************/
+
+.video-container {
+  position: absolute;
+  background-color: rgba(black, 0.5);
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  top: -1rem;
+  iframe {
+    opacity: 1;
+    margin: auto;
+    position: relative;
+  }
+  i {
+    position: absolute;
+    top: 8rem;
+    right: 23rem;
+    color: $primary-color;
+    cursor: pointer;
+  }
+}

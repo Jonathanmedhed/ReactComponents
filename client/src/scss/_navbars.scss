@@ -1,0 +1,792 @@
+/*******************************************************************************************************
+NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR NAVBAR 
+*******************************************************************************************************/
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; //put items at the end of the line
+  padding-left: 1rem;
+  position: fixed;
+  z-index: 1; //always on top
+  width: 100%;
+  padding: 0 0 0 0;
+  top: 0;
+  border-bottom: solid 1px $primary-color;
+  background-color: $primary-color;
+  opacity: 0.9;
+
+  h1 {
+    margin: 0;
+    margin-left: 10rem;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    margin-right: 10rem;
+    li {
+      font-size: 1.2rem;
+      padding-right: 1rem;
+    }
+  }
+  a {
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+    text-decoration: none;
+    &:hover {
+      color: $hover-color;
+    }
+  }
+}
+
+// with hover animation and dropdown menu
+.navbar-hover-under {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  padding: 0 0 0 0;
+  top: 0;
+  border-bottom: solid 1px $primary-color;
+  background-color: $primary-color;
+  opacity: 0.9;
+
+  a {
+    color: #fff;
+    padding: 0.45rem;
+    text-decoration: none;
+    display: inline;
+    &:hover {
+      color: $hover-color;
+      cursor: pointer;
+    }
+    &:hover ~ .underline {
+      transition: all 0.3s ease-in;
+      background-color: $hover-color;
+      width: 100%;
+    }
+  }
+
+  .title {
+    color: $secondary-color;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-left: 8rem;
+
+    h1 {
+      margin: 0;
+      padding: 0 0 0 0;
+      font-size: 2rem;
+    }
+  }
+
+  .main-ul {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin-right: 15.5rem;
+    margin-top: 0.3rem;
+
+    li {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      min-width: 7rem;
+      max-width: 7rem;
+    }
+
+    .dropdown-ul {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+
+      &:hover > .down {
+        transition: all 0.5s ease-in;
+        opacity: 1;
+        display: inline;
+        padding: 0 0 1rem 0;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+
+      .main {
+        background-color: $primary-color;
+        margin: auto;
+      }
+
+      .down {
+        background-color: $primary-color;
+        margin: auto;
+        opacity: 0;
+        display: none;
+
+        li {
+          padding: 0.1rem;
+          text-align: center;
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+.navbar-centered {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 0;
+  top: 0;
+  background-color: $primary-color;
+  opacity: 0.9;
+  height: 5rem;
+  p {
+    color: $secondary-color;
+    padding: 0.45rem;
+    text-decoration: none;
+    display: inline;
+    font-size: 1.1rem;
+    &:hover {
+      color: $hover-color;
+      cursor: pointer;
+    }
+    &:hover ~ .underline {
+      -webkit-transition: all 0.3s ease-in;
+      transition: all 0.3s ease-in;
+      background-color: $hover-color;
+      width: 100%;
+    }
+  }
+  .layout {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    ul,
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    ul,
+    li li {
+      min-width: 7rem;
+      max-width: 7rem;
+    }
+    h1,
+    p {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .left {
+      display: flex;
+      flex-direction: row;
+      min-width: 28rem;
+    }
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 3rem 0 3rem;
+      color: $secondary-color;
+      ul {
+        display: flex;
+        flex-direction: column;
+      }
+      p {
+        font-size: 0.6rem;
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: row;
+      min-width: 28rem;
+      ul {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+    .left {
+      .items {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 0 auto;
+      }
+      li,
+      .item {
+        min-width: 7rem;
+        max-width: 7rem;
+      }
+    }
+    .dropdown-ul {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      &:hover > .down {
+        transition: all 0.5s ease-in;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+      }
+      ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+      }
+      .down {
+        background-color: $primary-color;
+        margin: auto;
+        opacity: 0;
+        display: none;
+        li:first-child {
+          padding: 0;
+        }
+        li {
+          padding: 0.5rem 0 0 0;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+/*******************************************************************************************************
+JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO JUMBO 
+*******************************************************************************************************/
+
+.jumbo {
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
+  height: 25rem;
+  .inner {
+    color: #fff;
+    height: 25rem;
+    display: flex;
+    flex-direction: column; //vertical
+    width: 80%;
+    margin: auto;
+    padding: 0 2rem;
+    margin-top: 2rem;
+    align-items: center; //center horizontally
+    justify-content: center; //center vertically
+    text-align: center;
+
+    h1 {
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    img {
+      width: 10rem;
+    }
+
+    .buttons {
+      display: inline-block;
+      margin: 1rem 0 1rem 0;
+      .btn {
+        margin: 0 1rem 0 1rem;
+      }
+    }
+  }
+}
+
+.dark-overlay {
+  height: 25rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.jumbo-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: $primary-color;
+  bottom: 0;
+
+  .icons {
+    margin-bottom: 1rem;
+  }
+
+  i {
+    color: $secondary-color;
+    margin-left: 1rem;
+  }
+
+  i:hover {
+    color: $hover-color;
+  }
+
+  a {
+    color: #fff;
+    padding: 0.45rem;
+    margin: 0 0.25rem;
+    text-decoration: none;
+    &:hover {
+      color: $hover-color;
+    }
+  }
+
+  .copy {
+    i,
+    a:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.jumbo-big {
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
+  height: 36rem;
+  .inner {
+    color: #fff;
+    height: 36rem;
+    display: flex;
+    flex-direction: row; //vertical
+    width: 80%;
+    margin: auto;
+    padding: 0 2rem;
+    margin-top: 2rem;
+    align-items: center; //center horizontally
+    justify-content: center; //center vertically
+    text-align: center;
+
+    h1 {
+      font-size: 3.5rem;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    .text {
+      font-size: 1.3rem;
+    }
+
+    img {
+      width: 10rem;
+    }
+
+    .buttons {
+      display: inline-block;
+      margin: 1rem 0 1rem 0;
+      .btn {
+        margin: 0 1rem 0 1rem;
+      }
+    }
+    .cards {
+      margin-top: 0;
+      .left {
+        max-width: 25rem;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        margin: auto;
+        .btn {
+          font-size: 1rem;
+          padding: 1rem;
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+      }
+      .left-big {
+        width: 30rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+        .btn {
+          font-size: 1rem;
+          padding: 1rem;
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+      }
+      .right {
+        width: 25rem;
+        .img-cont-big-tall {
+          width: 25rem;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .right-no-bg {
+        img {
+          width: 30rem;
+        }
+      }
+    }
+  }
+}
+
+.dark-overlay-big {
+  height: 36rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+// bigger and with fading ovelay
+.jumbo-deg {
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
+  height: 36rem;
+  .inner {
+    h1 {
+      font-size: 3.5rem;
+      margin: 1rem 0 1rem 0;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 0;
+      max-width: 30rem;
+    }
+    color: #fff;
+    height: 30rem;
+    display: flex;
+    flex-direction: row; //vertical
+    width: 80%;
+    margin: auto;
+    padding: 0 2rem;
+    align-items: center; //center horizontally
+    justify-content: center; //center vertically
+    text-align: center;
+
+    .buttons {
+      display: inline-block;
+      margin: 1rem 0 1rem 0;
+      .btn {
+        margin: 0 1rem 0 1rem;
+      }
+    }
+    .cards {
+      .left-big {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        .btn {
+          font-size: 1rem;
+          padding: 1rem;
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+        .text {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.dark-overlay-deg {
+  height: 36rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 80%, $primary-color);
+}
+
+/*******************************************************************************************************
+MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE 
+*******************************************************************************************************/
+
+@media (max-width: 700px) {
+  /*******************************************************************************************************
+NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE NAVBAR MOBILE  
+*******************************************************************************************************/
+
+  .navbar {
+    padding-left: 0rem;
+    h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+    ul {
+      width: 3rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .dropdown {
+    display: flex;
+    position: fixed;
+    z-index: 1; //always on top
+    top: 4.4rem;
+    right: 0;
+    background-color: $primary-color;
+    opacity: 0.9;
+    padding-top: 0;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      li {
+        font-size: 1.8rem;
+        padding: 0.1rem;
+        border-top: solid 1px $secondary-color;
+      }
+      a {
+        color: #fff;
+        padding: 0.45rem;
+        margin: 0 0.25rem;
+        text-decoration: none;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  .navbar-centered {
+    .layout-mob {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      color: $secondary-color;
+      min-width: 19rem;
+      padding: 0 2rem 0 2rem;
+      .center {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      h1,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+  // with hover animation and dropdown menu
+  .navbar-hover-under {
+    justify-content: space-between; //put items at the end of the line
+    padding: 1rem 0 1rem 0;
+    a {
+      padding: 0;
+    }
+    .title {
+      color: $secondary-color;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0 0 0 1rem;
+      h1 {
+        margin: 0;
+        padding: 0 0 0 0.5rem;
+        font-size: 2rem;
+      }
+    }
+    .main-ul {
+      margin: 0 1.5rem 0 0;
+      .dropdown-ul {
+        position: static;
+      }
+    }
+  }
+
+  /*******************************************************************************************************
+JUMBO MOBILE JUMBO MOBILE JUMBO MOBILE JUMBO MOBILE JUMBO MOBILE JUMBO MOBILE JUMBO MOBILE JUMBO MOBILE
+*******************************************************************************************************/
+
+  .jumbo {
+    height: 20rem;
+    .inner {
+      height: 20rem;
+      padding-top: 1rem;
+      h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin: 0;
+      }
+
+      img {
+        width: 7rem;
+      }
+      .btn {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .dark-overlay {
+    height: 20rem;
+  }
+
+  // bigger and with fading ovelay
+  .jumbo-deg {
+    background: url('../img/showcase.jpg') no-repeat center center/cover;
+    height: 25rem;
+    .inner {
+      h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem 0 0.5rem 0;
+      }
+      p {
+        font-size: 1rem;
+        max-width: 30rem;
+        font-weight: bold;
+      }
+      height: 25rem;
+      padding: 0 2rem;
+
+      .buttons {
+        margin: 1rem 0 1rem 0;
+        .btn {
+          margin: 0 1rem 0 1rem;
+        }
+      }
+      .cards {
+        .left-big {
+          .btn {
+            padding: 0.6rem;
+          }
+          .text {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+
+  .dark-overlay-deg {
+    height: 25rem;
+  }
+
+  .jumbo-big {
+    height: 25rem;
+    .inner {
+      height: 25rem;
+      display: flex;
+      padding: 0 2rem;
+      margin-top: 2rem;
+
+      h1 {
+        font-size: 2.5rem;
+        margin: 0.5rem 0 0.5rem 0;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1rem;
+        margin: 0;
+        text-align: center;
+        font-weight: bold;
+      }
+      .text {
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      img {
+        width: 10rem;
+      }
+
+      .buttons {
+        display: inline-block;
+        margin: 1rem 0 1rem 0;
+        .btn {
+          margin: 0 1rem 0 1rem;
+        }
+      }
+      .cards {
+        margin-top: 0;
+        .left {
+          max-width: 25rem;
+          .btn {
+            margin-left: 6.5rem;
+            padding: 0.6rem;
+          }
+        }
+        .left-big {
+          width: 30rem;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: auto;
+          .btn {
+            font-size: 1rem;
+            padding: 1rem;
+            font-weight: bold;
+            margin-top: 1rem;
+          }
+        }
+        .right {
+          width: 25rem;
+          .img-cont-big-tall {
+            width: 25rem;
+            img {
+              width: 100%;
+            }
+          }
+        }
+        .right-no-bg {
+          img {
+            width: 30rem;
+          }
+        }
+      }
+    }
+  }
+
+  .dark-overlay-big {
+    height: 25rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

@@ -1844,7 +1844,7 @@
 }
 
 .jumbo {
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
   height: 25rem
 }
 
@@ -1951,7 +1951,7 @@
 }
 
 .jumbo-big {
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
   height: 36rem
 }
 
@@ -2075,7 +2075,7 @@
 }
 
 .jumbo-deg {
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
   height: 36rem
 }
 
@@ -2625,7 +2625,7 @@ Form Form Form Form Form Form Form Form Form Form Form Form Form Form Form Form 
 }
 
 .jumbo-login {
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background: url('../img/showcase.jpg') no-repeat center center/cover;
   height: 36rem;
   width: 100%;
 }
@@ -3032,12 +3032,21 @@ Chips
 */
 
 .p-chips.p-component {
-  border: solid 2px #17a2b8;
   border-radius: 0.2rem;
+  max-width: 20rem;
 }
 
-.p-chips.p-component input {
-  border: none;
+.p-chips.p-component .p-inputtext {
+  padding: 0;
+}
+
+.p-chips.p-component .p-inputtext input {
+  border: solid 2px #17a2b8;
+  padding: 0.4rem;
+}
+
+.p-chips.p-component .p-inputtext li:last-child {
+  display: block;
 }
 
 .p-chips.p-component .p-chips-token.p-highlight {
@@ -3045,6 +3054,11 @@ Chips
   color: whitesmoke;
   border-radius: 1rem;
   padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  font-weight: bold;
+}
+
+.p-chips-input-token {
+  margin: 0;
 }
 
 /**
@@ -6075,7 +6089,7 @@ Component Container Component Container Component Container Component Container 
     height: 20rem
   }
   .jumbo-deg {
-    background: url('./img/showcase.jpg') no-repeat center center/cover;
+    background: url('../img/showcase.jpg') no-repeat center center/cover;
     height: 25rem
   }
   .jumbo-deg .inner {
