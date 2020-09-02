@@ -1,12 +1,12 @@
 import React from 'react';
-import List from './_menu-list';
-import List2 from './_menu-list2';
 import MobileMenu from './_mobile-menu';
-import Others from './_others';
+import { alertOptions } from '../landing/data';
 
-const CenterNav = ({ setNavbar, setJumbo, setOption, bodyRef }) => {
-	const select = async (option) => {
-		setOption(option);
+const CenterNav = ({ setNavbar, setJumbo, setOption, setChoice, setChoices, setOpenShowcase, bodyRef }) => {
+	const select = async (option, options) => {
+		setOpenShowcase(true);
+		setChoice(option);
+		setChoices(options);
 		window.scrollTo(0, bodyRef.current.offsetTop);
 	};
 	return (
@@ -94,7 +94,7 @@ const CenterNav = ({ setNavbar, setJumbo, setOption, bodyRef }) => {
 				</div>
 				<div class="center">
 					<i class="fas fa-code fa-2x hide-sm"></i>
-					<h1 class="hide-sm">Website</h1>
+					<h1 class="hide-sm">My Components</h1>
 				</div>
 				<div class="right">
 					<ul>
@@ -102,85 +102,26 @@ const CenterNav = ({ setNavbar, setJumbo, setOption, bodyRef }) => {
 							<ul class="dropdown-ul">
 								<li class="hide-sm">
 									<p>
-										<div class="hide-sm">
-											Others <i class="fas fa-sort-down"></i>
+										<div onClick={() => select('alerts', alertOptions)} class="hide-sm">
+											Others
 										</div>
 									</p>
 									<div class="underline"></div>
 								</li>
-								<div class="down">
-									<li>
-										<p>
-											Others <i class="fas fa-sort-down"></i>
-										</p>
-										<div class="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('buttons')}>Buttons</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('carousels')}>Carousels</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('charts')}>Charts</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('dialogues')}>Dialogues</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('images')}>Images</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('search-boxes')}>Search Boxes</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('tables')}>Tables</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('tooltips')}>ToolTips</p>
-										<div className="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('videos')}>Videos</p>
-										<div className="underline"></div>
-									</li>
-								</div>
 							</ul>
 						</li>
-
+					</ul>
+					<ul>
 						<li class="hov">
 							<ul class="dropdown-ul">
 								<li class="hide-sm">
 									<p>
-										<div class="hide-sm">
-											Cards <i class="fas fa-sort-down"></i>
+										<div onClick={() => select('alerts', alertOptions)} class="hide-sm">
+											Others
 										</div>
 									</p>
 									<div class="underline"></div>
 								</li>
-								<div class="down">
-									<li>
-										<p href="login.html">
-											Cards <i class="fas fa-sort-down"></i>
-										</p>
-										<div class="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('cards')}>Small Cards</p>
-										<div class="underline"></div>
-									</li>
-									<li>
-										<p onClick={() => select('big-cards')}>Big Cards</p>
-										<div class="underline"></div>
-									</li>
-								</div>
 							</ul>
 						</li>
 					</ul>
@@ -194,7 +135,15 @@ const CenterNav = ({ setNavbar, setJumbo, setOption, bodyRef }) => {
 						<p>Since 1987</p>
 					</div>
 					<ul className="main-ul">
-						<MobileMenu setOption={setOption} setNavbar={setNavbar} setJumbo={setJumbo} bodyRef={bodyRef} />
+						<MobileMenu
+							setOpenShowcase={setOpenShowcase}
+							setChoice={setChoice}
+							setChoices={setChoices}
+							setOption={setOption}
+							setNavbar={setNavbar}
+							setJumbo={setJumbo}
+							bodyRef={bodyRef}
+						/>
 					</ul>
 				</div>
 			</div>

@@ -1,93 +1,135 @@
-import React, { useState, Fragment } from "react";
-import Others from "./_others";
+import React, { useState, Fragment } from 'react';
+import { Sidebar } from 'primereact/sidebar';
+import {
+	options,
+	alertOptions,
+	bigCardsOptions,
+	buttonOptions,
+	calendarOptions,
+	cardOptions,
+	carouselOptions,
+	chartOptions,
+	dialogOptions,
+	fileOptions,
+	imgOptions,
+	inputOptions,
+	jumboOptions,
+	layoutOptions,
+	listOptions,
+	loadingOptions,
+	mapOptions,
+	menuOptions,
+	navbarOptions,
+	pageOptions,
+	searchBoxOptions,
+	securityOptions,
+	tableOptions,
+	videoOptions,
+} from '../landing/data';
 
-const MobileMenu = ({ type, setOption, bodyRef }) => {
-  const select = async (option) => {
-    setOption(option);
-    window.scrollTo(0, bodyRef.current.offsetTop);
-  };
+const MobileMenu = ({ setChoice, setChoices, setOpenShowcase, bodyRef }) => {
+	const [show, setShow] = useState(false);
 
-  const [icon, setIcon] = useState("bars");
-  return (
-    <div className="show-sm">
-      <ul className="dropdown-ul">
-        <li onClick={() => setIcon(icon === "bars" ? "arrow" : "bars")}>
-          <a>
-            <div>
-              {icon === "bars" ? (
-                <i
-                  onClick={() => setIcon("arrow")}
-                  className="fas fa-bars fa-2x"
-                ></i>
-              ) : (
-                <Fragment></Fragment>
-              )}
-              {icon === "arrow" ? (
-                <i
-                  onClick={() => setIcon("bars")}
-                  class="fas fa-chevron-up fa-2x"
-                ></i>
-              ) : (
-                <Fragment></Fragment>
-              )}
-            </div>
-          </a>
-        </li>
-        <div className="down">
-          <div className="hide-sm">
-            <li>
-              <a onClick={() => select("navbars")}>Navbars</a>
-              {type === "simple" ? (
-                <Fragment></Fragment>
-              ) : (
-                <div className="underline"></div>
-              )}
-            </li>
-          </div>
-          <li>
-            <a onClick={() => select("jumbos")}>Jumbos</a>
-            {type === "simple" ? (
-              <Fragment></Fragment>
-            ) : (
-              <div className="underline"></div>
-            )}
-          </li>
-          <li>
-            <a onClick={() => select("cards")}>Cards</a>
-            {type === "simple" ? (
-              <Fragment></Fragment>
-            ) : (
-              <div className="underline"></div>
-            )}
-          </li>
-          <li>
-            <a onClick={() => select("big-cards")}>Cards (Big)</a>
-            {type === "simple" ? (
-              <Fragment></Fragment>
-            ) : (
-              <div className="underline"></div>
-            )}
-          </li>
-          <li>
-            <a onClick={() => select("carousels")}>Carousels</a>
-            {type === "simple" ? (
-              <Fragment></Fragment>
-            ) : (
-              <div className="underline"></div>
-            )}
-          </li>
-          <li>
-            <a onClick={() => select("pages")}>Pages</a>
-            {type === "simple" ? (
-              <Fragment></Fragment>
-            ) : (
-              <div className="underline"></div>
-            )}
-          </li>
-          <Others setOption={setOption} bodyRef={bodyRef} type={type} />
-        </div>
-      </ul>
-    </div>
-  );
+	/** Select an item */
+	const select = (option) => {
+		/** Dont Open Component Showcase if navbar or jumbo */
+		if (option === 'navbars' || option === 'jumbos') {
+			setOpenShowcase(false);
+		} else {
+			setOpenShowcase(true);
+		}
+		window.scrollTo(0, bodyRef.current.offsetTop);
+		/** Set current option and choice */
+		setChoice(option);
+		switch (option) {
+			case 'alerts':
+				setChoices(alertOptions);
+				break;
+			case 'big-cards':
+				setChoices(bigCardsOptions);
+				break;
+			case 'buttons':
+				setChoices(buttonOptions);
+				break;
+			case 'calendars':
+				setChoices(calendarOptions);
+				break;
+			case 'cards':
+				setChoices(cardOptions);
+				break;
+			case 'carousels':
+				setChoices(carouselOptions);
+				break;
+			case 'charts':
+				setChoices(chartOptions);
+				break;
+			case 'dialogues':
+				setChoices(dialogOptions);
+				break;
+			case 'files':
+				setChoices(fileOptions);
+				break;
+			case 'images':
+				setChoices(imgOptions);
+				break;
+			case 'inputs':
+				setChoices(inputOptions);
+				break;
+			case 'jumbos':
+				setChoices(jumboOptions);
+				break;
+			case 'layouts':
+				setChoices(layoutOptions);
+				break;
+			case 'lists':
+				setChoices(listOptions);
+				break;
+			case 'loading':
+				setChoices(loadingOptions);
+				break;
+			case 'maps':
+				setChoices(mapOptions);
+				break;
+			case 'menus':
+				setChoices(menuOptions);
+				break;
+			case 'navbars':
+				setChoices(navbarOptions);
+				break;
+			case 'pages':
+				setChoices(pageOptions);
+				break;
+			case 'search-boxes':
+				setChoices(searchBoxOptions);
+				break;
+			case 'security':
+				setChoices(securityOptions);
+				break;
+			case 'tables':
+				setChoices(tableOptions);
+				break;
+			case 'videos':
+				setChoices(videoOptions);
+				break;
+			default:
+		}
+		// Close Sidebar
+		setShow(false);
+	};
+
+	return (
+		<div className="show-sm">
+			<i onClick={() => setShow(true)} className="fas fa-bars fa-2x"></i>
+			<Sidebar visible={show} position="right" baseZIndex={1000000} onHide={(e) => setShow(false)}>
+				<ul>
+					{options.map((option) => (
+						<li onClick={() => select(option.value)} className="item">
+							{option.name}
+						</li>
+					))}
+				</ul>
+			</Sidebar>
+		</div>
+	);
 };
 export default MobileMenu;

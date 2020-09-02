@@ -13,6 +13,14 @@ body {
   color: #333;
 }
 
+.bold {
+  font-weight: solid;
+}
+
+.hover {
+  cursor: pointer;
+}
+
 // Backgrounds
 .white {
   background-color: white;
@@ -44,19 +52,9 @@ body {
   height: 20rem;
 }
 
-svg {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.svg-container {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  padding-bottom: 30rem;
-  vertical-align: middle;
-  overflow: hidden;
+.vertical {
+  display: flex;
+  flex-direction: column;
 }
 
 /*****************************************************************************************
@@ -2152,7 +2150,15 @@ Carrousel prime Carrousel prime Carrousel prime Carrousel prime  Carrousel prime
   font-size: 1.2rem;
 }
 
-@media (max-width: 700px) {
+// Landscape
+@media (max-width: 45rem) {
+  .p-carousel.p-component.p-carousel-horizontal {
+    max-width: 40rem;
+  }
+}
+
+// Portrait
+@media (max-width: 22.5rem) {
   .p-carousel.p-component.p-carousel-horizontal {
     max-width: 24rem;
   }
@@ -2275,7 +2281,9 @@ Component Container Component Container Component Container Component Container
   justify-content: center;
   align-items: center;
   min-height: 20rem;
-  padding-bottom: 0.5rem;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  border: solid 2px $primary-color;
+  border-radius: 2rem;
 }
 
 @media (max-width: 700px) {
@@ -3650,7 +3658,6 @@ Landing Landing Landing Landing Landing Landing Landing Landing Landing Landing 
   color: $primary-color;
   max-width: 30rem;
   margin: auto;
-  margin-bottom: 1rem;
 }
 
 .list-container {
@@ -4191,6 +4198,89 @@ Messages Prime Messages Prime Messages Prime Messages Prime Messages Prime Messa
   }
 }
 
+/**********************************************************************************
+Mobile Menu Mobile Menu Mobile Menu Mobile Menu Mobile Menu Mobile Menu Mobile Menu 
+**********************************************************************************/
+// Landscape
+@media (max-width: 45rem) {
+  .p-component-overlay.p-sidebar-mask {
+    max-width: 19.8rem;
+  }
+  .p-sidebar.p-component.p-sidebar-right.p-sidebar-active {
+    background-color: $primary-color;
+    color: $secondary-color;
+    ul {
+      list-style: none;
+      padding: 0;
+      max-height: 20rem;
+      overflow: auto;
+      .item {
+        min-width: 10rem;
+        font-size: 1.5rem;
+        padding: 0.1rem 0 0.1rem 0;
+        border-bottom: solid 2px $secondary-color;
+      }
+      scrollbar-width: thin;
+      scrollbar-color: $primary-color $secondary-color;
+
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $secondary-color;
+        border-radius: 0.2rem;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $primary-color;
+        border-radius: 6px;
+        border: 1px solid $secondary-color;
+      }
+    }
+  }
+}
+
+// Portrait
+@media (max-width: 22.5rem) {
+  .p-component-overlay.p-sidebar-mask {
+    max-width: 2.3rem;
+  }
+  .p-sidebar.p-component.p-sidebar-right.p-sidebar-active {
+    background-color: $primary-color;
+    color: $secondary-color;
+    ul {
+      list-style: none;
+      padding: 0;
+      max-height: 39rem;
+      overflow: auto;
+      .item {
+        min-width: 10rem;
+        font-size: 1.5rem;
+        padding: 0.1rem 0 0.1rem 0;
+        border-bottom: solid 2px $secondary-color;
+      }
+      scrollbar-width: thin;
+      scrollbar-color: $primary-color $secondary-color;
+
+      &::-webkit-scrollbar {
+        width: 1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $secondary-color;
+        border-radius: 0.2rem;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $primary-color;
+        border-radius: 6px;
+        border: 1px solid $secondary-color;
+      }
+    }
+  }
+}
+
 /****************************************************************************************
 Multi Select Multi Select Multi Select Multi Select Multi Select Multi Select Multi Select
 *****************************************************************************************/
@@ -4680,6 +4770,14 @@ SCREEN VIEW SCREEN VIEW SCREEN VIEW SCREEN VIEW SCREEN VIEW SCREEN VIEW SCREEN V
 }
 
 .show-sm {
+  display: none;
+}
+
+.show-sm-landscape {
+  display: none;
+}
+
+.show-sm-portrait {
   display: none;
 }
 
@@ -5457,6 +5555,44 @@ MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOB
 ********************************************************************************************************
 *******************************************************************************************************/
 
+// Landscape
+@media (max-width: 45rem) {
+  .hide-sm {
+    display: none;
+  }
+
+  .show-sm-landscape {
+    display: unset;
+  }
+
+  .show-sm-portrait {
+    display: none;
+  }
+
+  .show-sm {
+    display: unset;
+  }
+}
+
+// Portrait
+@media (max-width: 22.5rem) {
+  .hide-sm {
+    display: none;
+  }
+
+  .show-sm-landscape {
+    display: none;
+  }
+
+  .show-sm-portrait {
+    display: unset;
+  }
+
+  .show-sm {
+    display: unset;
+  }
+}
+
 @media (max-width: 700px) {
   html,
   body {
@@ -5465,14 +5601,6 @@ MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOB
     min-height: 100%;
     font-family: 'Raleway', sans-serif;
     color: #333;
-  }
-
-  .hide-sm {
-    display: none;
-  }
-
-  .show-sm {
-    display: unset;
   }
 
   // Container
@@ -6583,79 +6711,6 @@ MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOBILE MOB
   /****************************************************************************************
 Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile
 ****************************************************************************************/
-  .landing {
-    flex-direction: column;
-    margin: 0.3rem 0 0.3rem 0;
-  }
-  .landing i {
-    color: #17a2b8;
-  }
-  .landing .down {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    max-width: 22rem;
-    padding: 0;
-    margin: 0;
-  }
-  .landing .list-container {
-    padding: 0;
-    margin: 0.5rem 0 0.5rem 0;
-  }
-  .land-title {
-    text-align: center;
-    margin: 0 0 1rem 0;
-    background-color: #17a2b8;
-    color: whitesmoke;
-  }
-  .landing li .btn {
-    margin: 0 0.1rem 0 0.1rem;
-    font-size: 1rem;
-    min-width: 5rem;
-    white-space: nowrap;
-  }
-  .landing .vertical,
-  .horizontal {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-width: 22rem;
-    padding: 0;
-    margin: 0.5rem 0 0 0;
-  }
-  .landing .down::-webkit-scrollbar {
-    height: 1rem;
-  }
-  .landing .down {
-    scrollbar-width: thick;
-    scrollbar-color: #17a2b8 #f4f4f4;
-  }
-  .landing .down::-webkit-scrollbar-track {
-    background: #f4f4f4;
-  }
-  .landing .down::-webkit-scrollbar-thumb {
-    background-color: #17a2b8;
-    border: 3px solid #f4f4f4;
-  }
-  .landing .vertical,
-  .horizontal::-webkit-scrollbar {
-    height: 1rem;
-  }
-  .landing .vertical,
-  .horizontal {
-    scrollbar-width: thick;
-    scrollbar-color: #17a2b8 #f4f4f4;
-  }
-  .landing .vertical,
-  .horizontal::-webkit-scrollbar-track {
-    background: #f4f4f4;
-  }
-  .landing .vertical,
-  .horizontal::-webkit-scrollbar-thumb {
-    background-color: #17a2b8;
-    border: 3px solid #f4f4f4;
-  }
 
   /****************************************************************************
   Login Page Mobile Login Page Mobile Login Page Mobile Login Page Mobile Login 
@@ -6777,9 +6832,6 @@ Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landi
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
     list-style: none;
   }
@@ -6788,9 +6840,6 @@ Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landi
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     margin: 0;
     text-align: center;
@@ -6800,14 +6849,10 @@ Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landi
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     padding: 0;
   }
   .navbar-centered .main-ul .dropdown-ul:hover > .down {
-    -webkit-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in;
     opacity: 1;
     display: inline;
@@ -6817,9 +6862,6 @@ Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landi
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
     padding: 0;
     margin: 0;
@@ -6839,10 +6881,11 @@ Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landi
   }
   /** End mobile stuff*/
   .navbar-hover-under {
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 1rem 0 1rem 0;
+    i {
+      color: $secondary-color;
+    }
   }
   .navbar-hover-under a {
     padding: 0;
@@ -6868,7 +6911,7 @@ Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landing Mobile Landi
   .navbar-hover-under .title h1 {
     margin: 0;
     padding: 0 0 0 0.5rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   .navbar-hover-under .main-ul {
     margin: 0 1.5rem 0 0;

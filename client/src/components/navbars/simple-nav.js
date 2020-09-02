@@ -1,50 +1,61 @@
-import React from "react";
-import List from "./_menu-list";
-import List2 from "./_menu-list2";
-import MobileMenu from "./_mobile-menu";
+import React from 'react';
+import List from './_menu-list';
+import List2 from './_menu-list2';
+import MobileMenu from './_mobile-menu';
 
 const Navbar = ({
-  setPage,
-  setNavbar,
-  setCard,
-  setJumbo,
-  setOption,
-  bodyRef,
+	setOpenShowcase,
+	setAlerts,
+	setPage,
+	setNavbar,
+	setCard,
+	setJumbo,
+	setOption,
+	setChoice,
+	setChoices,
+	bodyRef,
 }) => {
-  return (
-    <nav className="navbar-hover-under">
-      <div className="title">
-        <a href="index.html">
-          <i className="fas fa-code fa-2x"></i>
-        </a>
-        <h1>
-          <a href="index.html">Website</a>
-        </h1>
-      </div>
-      <ul className="main-ul">
-        <List
-          setNavbar={setNavbar}
-          setJumbo={setJumbo}
-          setPage={setPage}
-          setOption={setOption}
-          bodyRef={bodyRef}
-        />
-        <List2
-          setNavbar={setNavbar}
-          setCard={setCard}
-          setOption={setOption}
-          bodyRef={bodyRef}
-        />
-      </ul>
-      <ul className="main-ul">
-      <MobileMenu
-          setNavbar={setNavbar}
-          setJumbo={setJumbo}
-          setOption={setOption}
-          bodyRef={bodyRef}
-        />
-      </ul>
-    </nav>
-  );
+	return (
+		<nav className="navbar-hover-under">
+			<div className="title">
+				<a>
+					<i className="fas fa-code fa-2x"></i>
+				</a>
+				<h1>
+					<a>My Components</a>
+				</h1>
+			</div>
+			<ul className="main-ul">
+				<List
+					setChoice={setChoice}
+					setChoices={setChoices}
+					setNavbar={setNavbar}
+					setJumbo={setJumbo}
+					setPage={setPage}
+					setOption={setOption}
+					bodyRef={bodyRef}
+				/>
+				<List2
+					setOpenShowcase={setOpenShowcase}
+					setAlerts={setAlerts}
+					setChoice={setChoice}
+					setChoices={setChoices}
+					setNavbar={setNavbar}
+					setCard={setCard}
+					setOption={setOption}
+					bodyRef={bodyRef}
+				/>
+			</ul>
+			<MobileMenu
+				setOpenShowcase={setOpenShowcase}
+				setChoice={setChoice}
+				setChoices={setChoices}
+				setNavbar={setNavbar}
+				setJumbo={setJumbo}
+				setOption={setOption}
+				bodyRef={bodyRef}
+			/>
+		</nav>
+	);
 };
 export default Navbar;

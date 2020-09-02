@@ -251,6 +251,9 @@ const Landing = ({ showVideo, setAlert }) => {
 				 */}
 				{navbar === 'centered' && (
 					<CenterNav
+						setOpenShowcase={setOpenShowcase}
+						setChoice={setChoice}
+						setChoices={setChoices}
 						setNavbar={setNavbar}
 						setJumbo={setJumbo}
 						setOption={setOption}
@@ -260,6 +263,9 @@ const Landing = ({ showVideo, setAlert }) => {
 				)}
 				{navbar === 'hover' && (
 					<HoverNav
+						setOpenShowcase={setOpenShowcase}
+						setChoice={setChoice}
+						setChoices={setChoices}
 						setNavbar={setNavbar}
 						setJumbo={setJumbo}
 						setOption={setOption}
@@ -269,6 +275,9 @@ const Landing = ({ showVideo, setAlert }) => {
 				)}
 				{navbar === 'simple' && (
 					<Navbar
+						setOpenShowcase={setOpenShowcase}
+						setChoice={setChoice}
+						setChoices={setChoices}
 						setNavbar={setNavbar}
 						setJumbo={setJumbo}
 						setOption={setOption}
@@ -278,9 +287,13 @@ const Landing = ({ showVideo, setAlert }) => {
 				)}
 			</div>
 			<div>
-				{!openShowcase && (
+				{!openShowcase ? (
 					<h1 ref={bodyRef} className="land-title">
 						Components
+					</h1>
+				) : (
+					<h1 ref={bodyRef} className="land-title">
+						{choice}
 					</h1>
 				)}
 				<div className="landing">
@@ -508,7 +521,7 @@ const Landing = ({ showVideo, setAlert }) => {
 							)}
 
 							{/**Loading Showcase */}
-							{choice === 'loadings' && (
+							{choice === 'loading' && (
 								<Fragment>
 									{loading === 'bar' && <ProgressBarComp />}
 									{loading === 'prime-spinner' && <PrimeSpinner />}
@@ -520,8 +533,8 @@ const Landing = ({ showVideo, setAlert }) => {
 							{choice === 'maps' && (
 								<Fragment>
 									{map === 'gmap' && <GoogleMap />}
-									{bigCard === 'map' && <BCardMap />}
-									{bigCard === 'map-rev' && <BCardMapRev />}
+									{map === 'map' && <BCardMap />}
+									{map === 'map-rev' && <BCardMapRev />}
 								</Fragment>
 							)}
 
@@ -586,36 +599,42 @@ const Landing = ({ showVideo, setAlert }) => {
 						 *******************************************************************************/}
 
 						{/** SUB CHOICES */}
-						<SubOptions
-							choices={choices}
-							choice={choice}
-							setAlerts={setAlerts}
-							setBigCard={setBigCard}
-							setButtons={setButtons}
-							setCalendar={setCalendar}
-							setCard={setCard}
-							setCarousel={setCarousel}
-							setChart={setChart}
-							setDialog={setDialog}
-							setFile={setFile}
-							setInput={setInput}
-							setIMG={setIMG}
-							setJumbo={setJumbo}
-							setLayout={setLayout}
-							setList={setList}
-							setLoading={setLoading}
-							setMap={setMap}
-							setMenu={setMenu}
-							setNavbar={setNavbar}
-							setOption={setOption}
-							setPage={setPage}
-							setSearchBox={setSearchBox}
-							setSecurity={setSecurity}
-							setTable={setTable}
-							setVideo={setVideo}
-						/>
+						{choice && (
+							<SubOptions
+								choices={choices}
+								choice={choice}
+								setChoices={setChoices}
+								setChoice={setChoice}
+								setAlerts={setAlerts}
+								setBigCard={setBigCard}
+								setButtons={setButtons}
+								setCalendar={setCalendar}
+								setCard={setCard}
+								setCarousel={setCarousel}
+								setChart={setChart}
+								setDialog={setDialog}
+								setFile={setFile}
+								setInput={setInput}
+								setIMG={setIMG}
+								setJumbo={setJumbo}
+								setLayout={setLayout}
+								setList={setList}
+								setLoading={setLoading}
+								setMap={setMap}
+								setMenu={setMenu}
+								setNavbar={setNavbar}
+								setOption={setOption}
+								setPage={setPage}
+								setSearchBox={setSearchBox}
+								setSecurity={setSecurity}
+								setTable={setTable}
+								setVideo={setVideo}
+							/>
+						)}
 						{/*GENERAL CHOICES*/}
 						<Options
+							choices={choices}
+							choice={choice}
 							setChoices={setChoices}
 							setChoice={setChoice}
 							setOpenShowcase={setOpenShowcase}
